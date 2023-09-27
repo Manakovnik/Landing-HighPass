@@ -1,0 +1,905 @@
+@import '_fonts.scss';
+@import '_variable.scss';
+@import '_mixin.scss';
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+button, a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+*:focus-visible {
+   outline: 0;
+}
+
+.grid {
+    display: grid;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button {
+    background: $colorBackgroundOrange1;
+    outline: none;
+}
+
+.button:active {
+    background-color: $colorBackgroundOrange3;
+}
+
+.button:focus {
+   outline: 3px solid $colorBackgroundOrange3;
+    background-color: $colorBackgroundOrange1;
+}
+
+.button:hover {
+    background-color: $colorBackgroundOrange2;
+}
+
+
+.button-about {
+   outline: 3px solid $colorBackgroundOrange1;
+    background: none;
+}
+
+.button-about:active {
+    background-color: $colorBackgroundOrange3;
+   outline: 3px solid $colorBackgroundOrange3;
+}
+
+.button-about:focus {
+   outline: 3px solid $colorBackgroundOrange2;
+    background-color: $colorBackgroundOrange2;
+}
+
+.button-about:hover {
+    background-color: $colorBackgroundOrange1;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1290px;
+    padding-left: 15px;
+    
+}
+
+.hashtag {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+  @include hashtag()
+}
+
+.hashtag-text {
+    padding: 7px 14px;
+    display: block;
+text-align: center;
+}
+
+.works__hashtag-text {
+    top:15px;
+    right: 15px;
+}
+
+
+.header {
+    background-color: #202020;
+    color: $colorBackgroundWhite;
+    position: relative;
+    
+
+    &__container {
+       display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    &__logo {
+        cursor: pointer;
+        width: 245px;
+    }
+
+    &__logo--mobile {
+        display: none;
+    }
+    &__logo--mini {
+        display: none;
+    }
+
+    &__item {
+        font-family: "TT Firs Neue normal";
+        justify-self: center;
+        max-height: 25px;
+    }
+
+    &__search-button {
+        grid-column: 7/8;
+        justify-self: end;
+        cursor: pointer;
+    }
+
+    &__search {
+        display: none;
+    }
+
+    &__search-btn {
+        display: none;
+        background-color: transparent;
+        border: none;
+    }
+    
+    &__search-btn--active {
+        padding-left: 15px;
+        margin-right: -5px;
+        display: flex;
+        width: 135px;
+        justify-content: flex-end;
+    }
+    
+    &__search-btn_close {
+        background-color: transparent;
+        border: none;
+    } 
+    
+    &__search-form {}
+    
+    &__search-form_text {
+        width: 260px;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $colorBackgroundGrey1;
+    }
+
+    &__search-form_text:active {
+        color: $colorBackgroundWhite;
+        border-bottom: 1px solid $colorBackgroundOrange3;
+    }
+    &__search-form_text:focus {
+        color: $colorBackgroundWhite;
+        border-bottom: 1px solid $colorBackgroundOrange2;
+    }
+    &__search-form_text:hover {
+        color: $colorBackgroundWhite;
+        border-bottom: 1px solid $colorBackgroundOrange1;
+    }
+    
+    
+    &__search {
+        width: 308px;
+        display: none;
+        position: absolute;
+        top: 10px;
+        right:40px;
+    }
+
+    &__search--svg:hover path {
+        fill: $colorBackgroundOrange1;
+    }
+    
+    &__search--active {
+        display: flex;
+    }
+    &__bottom {
+        display: none;
+        padding: 12px 27px;
+        background-color: $colorBackgroundGrey4;
+        justify-content: space-between;
+    }
+    
+    &__bottom-nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__bottom-item {
+        font-family: 'TT Firs Neue normal';
+        font-size: 16px;
+        line-height: 21px;
+        columns: $colorBackgroundWhite;
+    }
+
+    &__item--link:active {color: $colorBackgroundOrange3;}
+    &__item--link:focus {
+        background-color: $colorBackgroundOrange2;
+        color: inherit;
+        border: none;
+    }
+    &__item--link:hover {color: $colorBackgroundOrange1;}
+
+    &__item--item1{ grid-column: 2/3;}
+    &__item--item2{grid-column: 3/4;}
+    &__item--item3{grid-column: 4/5;}
+    &__item--item4{grid-column: 5/6;}
+    &__item--item5{grid-column: 6/7;}
+
+    
+}
+
+.burger {
+    display: none;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20px;
+    height: 18px;
+    cursor: pointer;
+
+    &__line {
+        width: 100%;
+        height: 2px;
+        background-color: $colorBackgroundWhite;
+    }
+
+    &::after, &::before {
+        content: '';
+        position: absolute;
+        height: 2px;
+        background-color: $colorBackgroundWhite;
+    }
+
+    &::after {
+        bottom: 0;
+        width: 60%;
+    }
+
+    &::before {
+        top: 0;
+        width: 100%;
+    }
+}
+
+.burger-active {
+   display: none !important;
+}
+
+.burger__nav {
+    display: block;
+}
+
+.burger__nav--item {
+    display: block !important;
+    margin-bottom: 30px;
+}
+
+.burger__tel {
+    display: none;
+    margin-bottom: 36px;
+}
+
+.burger__tel-active {
+    display: block;
+}
+
+.burger__item-active {
+    display: block;
+}
+
+.active {
+    width: 100%;
+    height: 100vh;
+    background-color: $colorBackgroundGrey6;
+    flex-direction: column;
+}
+
+.header__search-form_text::placeholder{
+    color: $colorBackgroundGrey1;
+}
+
+
+
+.works {
+
+    padding-top: 41px;
+    grid-template-columns: repeat(auto-fill, 23.3% 23.3% 23.3% 23.3%);
+    grid-template-rows: 2% 53% 45%;
+    grid-auto-flow: dense;
+    @include gridGap();
+    margin-bottom: 128px;
+    position: relative;
+   
+
+    &__title {
+        grid-column: 3/5;
+        grid-row: 1/2;
+        width: 100%;
+    }
+
+    
+    &__item-title {
+        width: 100%;
+        margin: 0 auto;
+      @include h2();
+    }
+
+
+    &__item1 {
+        background-image: url(images/works/1.jpg);
+       @include backgroundImage();
+        grid-column: 1/3;
+        grid-row: 1/4;
+    }
+    
+    &__item2 { 
+        background-image: url(images/works/2.jpg);
+       @include backgroundImage();
+        grid-column: 3/5;
+        grid-row: 2/3;
+    }
+    &__item3 {
+        background-image: url(images/works/3.jpg);
+       @include backgroundImage();
+        grid-column: 3/4;
+        grid-row: 3/4;
+        // max-height: 300px;
+    }
+    &__item4 {
+        background-image: url(images/works/4.jpg);
+       @include backgroundImage();
+        grid-column: 4/5;
+        grid-row: 3/4;
+        // max-height: 300px;
+    }
+
+    &__masterclass {
+        position: absolute;
+        bottom: 0;
+        left: 60px;
+        grid-column: 1/3;
+        grid-row: 3/4;
+        padding: 20px 120px 0px 0px;
+    }
+ 
+    &__masterclass--hashtag{
+        grid-column: 2/2;
+        grid-row: 1/1;
+     position: relative;
+    }
+
+    
+    &__masterclass--title{
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 19px;
+        color: $colorBackgroundWhite;
+        padding-top: 10px;
+        margin-bottom: 3px;
+    
+    }
+    
+    &__masterclass--descr {
+        font-family: "TT Firs Neue Bold";
+        font-size: 36px;
+        line-height: 104%;
+        color: $colorBackgroundWhite;
+        margin-bottom: 19px;
+    
+    }
+    
+    &__masterclass--button {
+       @include button();
+        width: 160px;
+        height: 50px;
+        margin-bottom: 60px;
+    }
+    
+    &__masterclass--button-link {
+        color: $colorBackgroundWhite;
+        text-decoration: none;
+        font-family: "roboto Bold";
+        font-size: 16px;
+        line-height: 19px;
+        
+    }
+
+    &__img {
+        min-height: 170px;
+    }
+}
+
+
+.about {
+    background-color: #202020;
+    min-height: 500px;
+    margin-bottom: 68px;
+
+    &__article--header {
+        color: $colorBackgroundWhite;
+        margin-bottom: 5px;
+        padding-top: 30px;
+      @include h2();
+    }
+
+    &__grid {
+        min-height: 364px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:  1fr;
+        @include gridGap();
+    }
+
+    &__article {
+    }
+
+    &__article--content {
+        color: #CACACA;
+        font-family: "roboto normal";
+     height: 100%;
+     font-size: 16px;
+     line-height: 28px;
+     margin-bottom: 30px;
+    }
+
+
+    &__img {
+        margin-bottom: 20px;
+        height: 64%;
+         max-width: 100%;
+        object-fit: cover;
+    }
+
+    &__label {
+        color:$colorBackgroundWhite;
+        font-family: "TT Firs Neue normal";
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 22px;
+        margin-bottom: 16px;
+    }
+    
+    &__form--form {
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+
+    &__input {
+        color: $colorBackgroundWhite;
+        background-color: $colorBackgroundGrey4;
+        padding-left: 15px;
+        border: none;
+        width: 100%;
+        height: 50px;
+        margin-right: 30px;
+        box-sizing: border-box;
+    }
+    &__input::placeholder{
+        color: $colorBackgroundGrey3;
+    }
+
+    &__input:hover::placeholder{
+        color: $colorBackgroundOrange1;
+    }
+    &__input:focus{
+        outline: 1px solid  $colorBackgroundOrange1;
+    }
+    
+    &__input:active{
+        outline: none;
+        color: $colorBackgroundWhite;
+    }
+    
+    
+    &__submit {
+        @include button();
+        border: none;
+        text-decoration: none;
+        color:$colorBackgroundWhite;
+        padding: 15px 22px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+.projects {
+    max-width: 1290px;
+    margin-bottom: 68px;
+
+    &__title{
+        @include h2();
+        margin-bottom: 12px;
+    }
+
+    &__grid {
+        grid-template-columns: repeat(auto-fit, 14.8% 14.8% 14.8% 23.2% 23.2%);
+        // grid-template-rows: repeat(auto-fill, 300px);
+        @include gridGap();
+    }
+
+    &__cards {
+        position: relative;
+    }
+
+    &__card--item1{}
+    &__card--item2{}
+    &__card--item3{}
+    &__card--item4{
+        background-image: url(images/projects/4.jpg);
+        background-position: center;
+        grid-column: 4/6;
+        object-fit: cover;
+        
+    }
+    &__card--item5{
+        background-image: url(images/projects/5.jpg);
+        background-position: center;
+        grid-column: 1/4;
+        object-fit: cover;
+    
+    }
+    &__card--item6{
+        grid-column: 4/5;
+   
+    }
+    &__card--item7{
+        grid-column: 5/6;
+  
+       
+    }
+
+}
+
+.bigcard {
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $colorBackgroundWhite;
+    padding: 24px 10px 10px 29px;
+    &__button {
+        width: 120px !important;
+    }
+
+}
+            
+.card {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    justify-content: space-between;
+
+    &__bigcard {
+        max-width: 292px;
+    }
+
+    &__bgrnd {
+      height: 184px;
+      margin-bottom: 18px;
+    }
+    
+    &__descr{
+        margin-bottom: 10px;
+        margin-right: -5px;
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorBackgroundGrey6;
+    }
+    &__descr--1024-768 {
+        margin-bottom: 10px;
+        margin-right: -5px;
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorBackgroundGrey6;
+        display: none;
+    }
+
+    &__descr--bigcard{
+        color: $colorBackgroundWhite;
+        font-family: 'roboto normal';
+        font-size: 16px;
+        line-height: 22px;
+    }
+    &__calendar {
+        // margin-top: -22px;
+    }
+
+    &__date {
+        font-family: "roboto normal";
+        font-size: 12px;
+        line-height: 22px;
+        color: $colorBackgroundGrey3;
+    }
+
+    &__date--bigcard {
+        color: $colorBackgroundWhite;
+        font-family: 'roboto normal';
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    &__title--bigcard {
+        font-family: 'TT Firs Neue normal';
+        font-size: 24px;
+        line-height: 24px;
+        margin-bottom: 6px;
+        margin-right: 60px
+    }
+    
+    &__button {
+        @include button();
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+    }
+    &__button--link{
+        text-decoration: none;
+        color: $colorBackgroundWhite;
+    }
+}
+
+
+
+.contacts {
+    
+    margin-bottom: 68px;
+
+    &__grid {
+        box-sizing: content-box;
+        grid-template-columns: 31.9% 1fr 1fr;
+        grid-template-rows: 1fr;
+        height: 460px
+    }
+
+
+    &__title {
+        @include h2();
+        margin-bottom: 22px;
+    }
+
+    &__map {
+        height: 100%;
+        grid-column: 1/3;
+        grid-row: 1/1;
+    }
+
+    &__adress{
+        grid-column: 1/1;
+        grid-row: 1/1;
+        z-index: 2;
+        padding: 175px 50px 150px 60px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-color: $colorBackgroundGrey5;
+    }
+
+    &__x{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    &__adress--tite{
+        font-family: 'TT Firs Neue normal';
+        font-size: 24px;
+        line-height: 22px;
+        color: $colorBackgroundWhite;
+        margin-bottom: 5px;
+    }
+    &__adress--descr{
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 28px;
+        color: $colorBackgroundGrey2;
+    }
+
+    &__adress--tel{
+        
+    }
+    &__telephone-number{
+        text-decoration: none;
+        color: $colorBackgroundOrange1;
+        font-family: "TT Firs Neue normal";
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    &__form {
+        height: 460px;
+        grid-column: 3/3;
+        grid-row: 1/1;
+      padding-left: 30px;
+      display: flex;
+      flex-direction: column;
+      
+     
+    }
+    &__form-title {
+       margin-top: -5px;
+        font-family: "TT Firs Neue normal";
+        font-size: 24px;
+        line-height: 22px;
+        color: $colorBackgroundGrey6;
+        margin-bottom: 5px;
+    }
+    &__form-descr {
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorBackgroundGrey3;
+        margin-bottom: 14px;
+    }
+    &__input-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-name{
+        height: 47px;
+        background-color: $colorBackgroundGrey1;
+        border: none;
+        margin-bottom: 20px;
+    }
+    &__form-email{
+        height: 47px;
+        background-color: $colorBackgroundGrey1;
+        border: none;
+        margin-bottom: 20px;
+    }
+    &__form-textarea{
+        height: 147px;
+        background-color: $colorBackgroundGrey1;
+        border: none;
+        margin-bottom: 20px;
+    }
+    &__form-textarea::placeholder {
+        padding: 0;
+    }
+    &__form-submit {
+        @include button();
+        color: $colorBackgroundWhite;
+        border: none;
+    }
+
+    &__input {
+        padding-left: 23px;
+    }
+
+    &__input::placeholder{
+        color: $colorBackgroundGrey1;
+    }
+
+    &__input:hover::placeholder{
+        color: $colorBackgroundOrange1;
+    }
+    &__input:focus{
+        outline: 1px solid  $colorBackgroundOrange1;
+    }
+    
+    &__input:active{
+        outline: none;
+        color: $colorBackgroundGrey6;
+    }
+}
+
+.contacts__form-name::placeholder, 
+.contacts__form-email::placeholder,
+.contacts__form-textarea::placeholder {
+    color: $colorBackgroundGrey3;
+}
+
+.ymaps-2-1-79-ground-pane {
+    -webkit-filter: grayscale(100%);
+}
+
+.ymaps-2-1-79-gotoymaps__container {
+    -webkit-filter: grayscale(100%);
+}
+
+.footer{
+    background-color: $colorBackgroundGrey6;
+    height: 106px;
+   
+    
+    &__grid {
+        height: 100%;
+        grid-template-columns:32% 48% 20% ;
+        align-items: center;
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+    }
+    &__logo--mobile {
+        display: none;
+    }
+
+    &__logo--descr {
+        margin-top: 8px;
+        color: $colorBackgroundGrey1;
+        font-family: "TT Firs Neue normal";
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    &__center{
+        
+    }
+
+    &__center--descr{
+        padding-left: 30px;
+        padding-right: 40px;
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorBackgroundGrey2;
+    }
+    &__social{
+        grid-column: 3/3;
+        align-self:center;
+        justify-self: end;
+    }
+    &__social--descr{
+        font-family: "roboto normal";
+        font-size: 16px;
+        line-height: 22px;
+        color: $colorBackgroundGrey2;
+       
+    }
+    &__social--wrapper{
+        width: 80px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+
+    }
+
+    &__social--svg {
+        cursor: pointer;
+    }
+    &__social--svg:active path{
+        fill: $colorBackgroundOrange3;
+    }
+    &__social--svg:focus path{
+        fill: $colorBackgroundOrange2;
+    }
+    &__social--svg:hover path{
+        fill: $colorBackgroundOrange1;
+    }
+
+    &__bottom {
+        display: none;
+        background-color: $colorBackgroundGrey4;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    &__bottom--text {
+        color: $colorBackgroundGrey1;
+        font-family: 'TT Firs Neue normal';
+        font-size: 10px;
+        line-height: 13px;
+    }
+
+
+
+}
+
+

@@ -1,0 +1,48 @@
+@mixin button{
+    font-family: "roboto normal";
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 126px;
+    height: 50px;
+    cursor: pointer;
+
+    @media (max-width:600px) {
+        font-size: 14px;
+        line-height: 16px;       
+    }
+}
+@mixin buttonHover{}
+@mixin buttonActive{}
+@mixin buttonFocus{}
+
+@mixin hashtag {
+    background-color: #202020;
+    color: $colorBackgroundWhite;
+    font-family: "roboto normal";
+    font-size: 14px;
+    line-height: 16px;
+}
+
+@mixin h2 {
+    font-family: "TT Firs Neue Bold";
+    font-size: 24px;
+    line-height: 31px;
+
+    @media (max-width:760px) {
+        font-size: 18px;
+        line-height: 23px;
+    }
+}
+
+@mixin gridGap {
+    gap: 30px;
+}
+
+@mixin backgroundImage {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
